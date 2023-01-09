@@ -9,5 +9,7 @@ package entity;
  * @author Tu
  */
 public class Student {
-    
+    public static void main(String[] args) {
+        
+    }
 }
