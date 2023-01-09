@@ -4,9 +4,17 @@
         <servlet-name>ListServelet</servlet-name>
         <servlet-class>controler.ListServelet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderServelet</servlet-name>
+        <servlet-class>controler.OrderServelet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListServelet</servlet-name>
         <url-pattern>/ListServelet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderServelet</servlet-name>
+        <url-pattern>/OrderServelet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
