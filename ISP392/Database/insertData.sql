@@ -1,4 +1,5 @@
 ﻿
+
 use OnlineShop
 
 ------ Insert into UserStatus ------------------------
@@ -13,124 +14,106 @@ INSERT INTO [Role] VALUES (N'Admin');
 INSERT INTO Role VALUES (N'Seller');
 INSERT INTO Role VALUES (N'Customer');
 INSERT INTO Role VALUES (N'Marketing');
-INSERT INTO Role VALUES (N'Shipper');
+
 
 ------ Insert into Users ------------
 
-INSERT INTO Users VALUES(N'admin','123456','admin@fpt.edu.vn',1,1);
-INSERT INTO Users VALUES(N'tu','1234567','tulqhe160053@fpt.edu.vn',3,1);
-INSERT INTO Users VALUES(N'thanh','654321','thanh01@gmail.com',2,1);
-INSERT INTO Users VALUES(N'mkt','mkt123','mkt@gmail.com',4,1);
-INSERT INTO Users VALUES(N'shipper','shipper','shipper@fpt.edu.vn',5,1);
 
------- Insert into Ship ------------
+INSERT INTO Users VALUES(N'admin','123456','male','admin@fpt.edu.vn','0123012345',1,1);
+INSERT INTO Users VALUES(N'tu','1234567','male','tulqhe160053@fpt.edu.vn','0962229812',3,1);
+INSERT INTO Users VALUES(N'thanh','654321','male','thanh01@gmail.com','3232112243',2,1);
+INSERT INTO Users VALUES(N'mkt','mkt123','male','mkt@gmail.com','0122121175',4,1);
 
-INSERT INTO Ship VALUES (N'An Giang', 30000);
-INSERT INTO Ship VALUES (N'Bà Rịa-Vũng Tàu', 30000);
-INSERT INTO Ship VALUES (N'Bạc Liêu', 30000);
-INSERT INTO Ship VALUES (N'Bắc Kạn', 30000);
-INSERT INTO Ship VALUES (N'Bắc Giang', 30000);
-INSERT INTO Ship VALUES (N'Bắc Ninh', 30000);
-INSERT INTO Ship VALUES (N'Bến Tre', 30000);
-INSERT INTO Ship VALUES (N'Bình Dương', 30000);
-INSERT INTO Ship VALUES (N'Bình Định', 30000);
-INSERT INTO Ship VALUES (N'Bình Phước', 30000);
-INSERT INTO Ship VALUES (N'Bình Thuận', 30000);
-INSERT INTO Ship VALUES (N'Cà Mau', 30000);
-INSERT INTO Ship VALUES (N'Cao Bằng', 30000);
-INSERT INTO Ship VALUES (N'Cần Thơ', 30000);
-INSERT INTO Ship VALUES (N'Đà Nẵng', 30000);
-INSERT INTO Ship VALUES (N'Đắk Lắk', 30000);
-INSERT INTO Ship VALUES (N'Đắk Nông', 30000);
-INSERT INTO Ship VALUES (N'Điện Biên', 30000);
-INSERT INTO Ship VALUES (N'Đồng Nai', 30000);
-INSERT INTO Ship VALUES (N'Đồng Tháp', 30000);
-INSERT INTO Ship VALUES (N'Gia Lai', 30000);
-INSERT INTO Ship VALUES (N'Hà Giang', 30000);
-INSERT INTO Ship VALUES (N'Hà Nam', 30000);
-INSERT INTO Ship VALUES (N'Hà Nội', 20000);
-INSERT INTO Ship VALUES (N'Hà Tĩnh', 30000);
-INSERT INTO Ship VALUES (N'Hải Dương', 30000);
-INSERT INTO Ship VALUES (N'Hải Phòng', 30000);
-INSERT INTO Ship VALUES (N'Hòa Bình', 30000);
-INSERT INTO Ship VALUES (N'Hồ Chí Minh', 30000);
-INSERT INTO Ship VALUES (N'Hậu Giang', 30000);
-INSERT INTO Ship VALUES (N'Hưng Yên', 30000);
-INSERT INTO Ship VALUES (N'Khánh Hòa', 30000);
-INSERT INTO Ship VALUES (N'Kiên Giang', 30000);
-INSERT INTO Ship VALUES (N'Kon Tum', 30000);
-INSERT INTO Ship VALUES (N'Lai Châu', 30000);
-INSERT INTO Ship VALUES (N'Lào Cai', 30000);
-INSERT INTO Ship VALUES (N'Lạng Sơn', 30000);
-INSERT INTO Ship VALUES (N'Lâm Đồng', 30000);
-INSERT INTO Ship VALUES (N'Long An', 30000);
-INSERT INTO Ship VALUES (N'Nam Định', 30000);
-INSERT INTO Ship VALUES (N'Nghệ An', 30000);
-INSERT INTO Ship VALUES (N'Ninh Bình', 30000);
-INSERT INTO Ship VALUES (N'Ninh Thuận', 30000);
-INSERT INTO Ship VALUES (N'Phú Thọ', 30000);
-INSERT INTO Ship VALUES (N'Phú Yên', 30000);
-INSERT INTO Ship VALUES (N'Quảng Bình', 30000);
-INSERT INTO Ship VALUES (N'Quảng Nam', 30000);
-INSERT INTO Ship VALUES (N'Quảng Ngãi', 30000);
-INSERT INTO Ship VALUES (N'Quảng Ninh', 30000);
-INSERT INTO Ship VALUES (N'Quảng Trị', 30000);
-INSERT INTO Ship VALUES (N'Sóc Trăng', 30000);
-INSERT INTO Ship VALUES (N'Sơn La', 30000);
-INSERT INTO Ship VALUES (N'Tây Ninh', 30000);
-INSERT INTO Ship VALUES (N'Thái Bình', 30000);
-INSERT INTO Ship VALUES (N'Thái Nguyên', 30000);
-INSERT INTO Ship VALUES (N'Thanh Hóa', 30000);
-INSERT INTO Ship VALUES (N'Thừa Thiên - Huế', 30000);
-INSERT INTO Ship VALUES (N'Tiền Giang', 30000);
-INSERT INTO Ship VALUES (N'Trà Vinh', 30000);
-INSERT INTO Ship VALUES (N'Tuyên Quang', 30000);
-INSERT INTO Ship VALUES (N'Vĩnh Long', 30000);
-INSERT INTO Ship VALUES (N'Vĩnh Phúc', 30000);
-INSERT INTO Ship VALUES (N'Yên Bái', 30000);
+INSERT INTO Users VALUES(N'minh','1234567','male','minhmq1@gmail.com','0123122435',3,1);
+INSERT INTO Users VALUES(N'quynh','1234567','female','quynhngoc16@gmail.com','0877889811',3,1);
+INSERT INTO Users VALUES(N'quan','1234567','male','quanminh12@gmail.com','0540930921',3,1);
+INSERT INTO Users VALUES(N'hanh','1234567','female','hanhnguyen1@gmail.com','0978773891',3,1);
 
------- Insert into UserAddress ------------
+INSERT INTO Users VALUES(N'ngoc','123456','female','ngoc01@gmail.com','3252112243',2,1);
+INSERT INTO Users VALUES(N'nhat','123456','male','nhat12@gmail.com','3252123643',2,1);
 
-insert into dbo.[UserAddress] ([UserID], [ShipName], [ShipAddress], [ShipCityID]) values (1, 'admin', N'119 Đường Láng', 24);
-insert into dbo.[UserAddress] ([UserID], [ShipName], [ShipAddress], [ShipCityID],[PhoneNum]) values (2, 'Giao hang tiet kiem', N'Đại học Fpt', 24, '09154291');
-insert into dbo.[UserAddress] ([UserID], [ShipName], [ShipAddress], [ShipCityID],[PhoneNum]) values (3, 'Giao hang nhanh', N'180 Cầu Giấy', 24, '0123123');
-insert into dbo.[UserAddress] ([UserID], [ShipName], [ShipAddress], [ShipCityID]) values (4, 'Grabship', N'92 Đống Đa', 10);
-insert into dbo.[UserAddress] ([UserID], [ShipName], [ShipAddress], [ShipCityID],[PhoneNum]) values (5, 'VNExpress', N'119 Lê Thánh Tông', 24,'0123456789');
+
+------ Insert into City ------------
+
+INSERT INTO City VALUES (N'An Giang');
+INSERT INTO City VALUES (N'Bà Rịa-Vũng Tàu');
+INSERT INTO City VALUES (N'Bạc Liêu');
+INSERT INTO City VALUES (N'Bắc Kạn');
+INSERT INTO City VALUES (N'Bắc Giang');
+INSERT INTO City VALUES (N'Bắc Ninh');
+INSERT INTO City VALUES (N'Bến Tre');
+INSERT INTO City VALUES (N'Bình Dương');
+INSERT INTO City VALUES (N'Bình Định');
+INSERT INTO City VALUES (N'Bình Phước');
+INSERT INTO City VALUES (N'Bình Thuận');
+INSERT INTO City VALUES (N'Cà Mau');
+INSERT INTO City VALUES (N'Cao Bằng');
+INSERT INTO City VALUES (N'Cần Thơ');
+INSERT INTO City VALUES (N'Đà Nẵng');
+INSERT INTO City VALUES (N'Đắk Lắk');
+INSERT INTO City VALUES (N'Đắk Nông');
+INSERT INTO City VALUES (N'Điện Biên');
+INSERT INTO City VALUES (N'Đồng Nai');
+INSERT INTO City VALUES (N'Đồng Tháp');
+INSERT INTO City VALUES (N'Gia Lai');
+INSERT INTO City VALUES (N'Hà Giang');
+INSERT INTO City VALUES (N'Hà Nam');
+INSERT INTO City VALUES (N'Hà Nội');
+INSERT INTO City VALUES (N'Hà Tĩnh');
+INSERT INTO City VALUES (N'Hải Dương');
+INSERT INTO City VALUES (N'Hải Phòng');
+INSERT INTO City VALUES (N'Hòa Bình');
+INSERT INTO City VALUES (N'Hồ Chí Minh');
+INSERT INTO City VALUES (N'Hậu Giang');
+INSERT INTO City VALUES (N'Hưng Yên');
+INSERT INTO City VALUES (N'Khánh Hòa');
+INSERT INTO City VALUES (N'Kiên Giang');
+INSERT INTO City VALUES (N'Kon Tum');
+INSERT INTO City VALUES (N'Lai Châu');
+INSERT INTO City VALUES (N'Lào Cai');
+INSERT INTO City VALUES (N'Lạng Sơn');
+INSERT INTO City VALUES (N'Lâm Đồng');
+INSERT INTO City VALUES (N'Long An');
+INSERT INTO City VALUES (N'Nam Định');
+INSERT INTO City VALUES (N'Nghệ An');
+INSERT INTO City VALUES (N'Ninh Bình');
+INSERT INTO City VALUES (N'Ninh Thuận');
+INSERT INTO City VALUES (N'Phú Thọ');
+INSERT INTO City VALUES (N'Phú Yên');
+INSERT INTO City VALUES (N'Quảng Bình');
+INSERT INTO City VALUES (N'Quảng Nam');
+INSERT INTO City VALUES (N'Quảng Ngãi');
+INSERT INTO City VALUES (N'Quảng Ninh');
+INSERT INTO City VALUES (N'Quảng Trị');
+INSERT INTO City VALUES (N'Sóc Trăng');
+INSERT INTO City VALUES (N'Sơn La');
+INSERT INTO City VALUES (N'Tây Ninh');
+INSERT INTO City VALUES (N'Thái Bình');
+INSERT INTO City VALUES (N'Thái Nguyên');
+INSERT INTO City VALUES (N'Thanh Hóa');
+INSERT INTO City VALUES (N'Thừa Thiên - Huế');
+INSERT INTO City VALUES (N'Tiền Giang');
+INSERT INTO City VALUES (N'Trà Vinh');
+INSERT INTO City VALUES (N'Tuyên Quang');
+INSERT INTO City VALUES (N'Vĩnh Long');
+INSERT INTO City VALUES (N'Vĩnh Phúc');
+INSERT INTO City VALUES (N'Yên Bái');
+
+------ Insert into ShipAddress ------------
+
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (2, N'Linh Quang Tú', '0962239966', N'Số nhà 182, tổ 10, Phường Ngọc Xuân', 13);
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (5, N'Bình Minh', '0123122435', N'Số 92, đường Lê Lợi', 24);
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (6, N'Xuân Quỳnh', '0977889811', N'Sô 123 Đường Láng', 24);
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (7, N'Minh Quân', '0540930921', N'Số 92 Đường Lê Thánh Tông', 24);
+
 
 ------ Insert into Category ------------
 
-INSERT INTO dbo.Category(CategoryName)VALUES('Jeans')
-INSERT INTO dbo.Category(CategoryName)VALUES('Pants & Chinos')
-INSERT INTO dbo.Category(CategoryName)VALUES('Shorts')
-INSERT INTO dbo.Category(CategoryName)VALUES('Jean Jackets & Outerwear')
-INSERT INTO dbo.Category(CategoryName)VALUES('Sweatshirts & Sweaters');
-INSERT INTO dbo.Category(CategoryName)VALUES('Shirts & T-Shirts');
-INSERT INTO dbo.Category(CategoryName)VALUES('Accessories');
+INSERT INTO dbo.Category(CategoryName)VALUES(N'Laptop')
+INSERT INTO dbo.Category(CategoryName)VALUES(N'Điện thoại')
+INSERT INTO dbo.Category(CategoryName)VALUES(N'Máy tính bảng')
+INSERT INTO dbo.Category(CategoryName)VALUES(N'Phụ kiện')
 
------- Insert into [SubCategory] ------------
-
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Straight Jeans',1)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Slim Jeans',1)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Skinny Jeans',1)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Tapered Jeans',1)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'XX Chino Pants',2)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Taper Pants',2)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Straight Pants',2)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Denim Shorts',3)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Cargo Shorts',3);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'XX Chino Shorts',3);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Hoodie Jacket',4)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Trucker Jacket',4);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Zip-up Hoodie',5);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Sweatshirt',5)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Hoodie Sweatshirt',5);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Crewneck Sweatshirt',5);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Western & Denim Shirts',6);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Graphic T-Shirts',6);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES(N'Button-Up Shirts',6)
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Socks',7);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Cap',7);
-INSERT INTO dbo.SubCategory(SubCategoryName,CategoryID)VALUES (N'Bag',7);
 
 ------ Insert into ProductStatus ------------
 
@@ -139,36 +122,129 @@ INSERT INTO ProductStatus VALUES ( N'StopBusiness');
 
 ------ Insert into Brand ------------
 
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Tokyo Life')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Zombie')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'FREAKERS')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Karihada')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Icon Denim')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Hyperdenim VN')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Davies')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'EnvyLook')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Nike')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Vans')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Adidas')
-INSERT INTO dbo.Brand(BrandName)VALUES(N'Flaans')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Apple')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Asus')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Dell')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Lenovo')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Acer')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Samsung')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Oppo')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'Xiaomi')
+INSERT INTO dbo.Brand(BrandName)VALUES(N'JBL')
 
 
 --------- Insert into Product -----------
 INSERT INTO Product VALUES (
-	N'ORIGINAL FIT MEN''S JEANS',
-	N'a classic straight leg and iconic styling, they’re literally
-	the blueprint for every pair of jeans in existence — burned into 
-	the world’s collective cortex ever since Levi Strauss (the man himself!) invented them in 1873.',
-	70,
-	65,
+	N'MacBook Pro 14 M1',
+	N'MacBook Pro sở hữu bộ vi xử lý M1 Pro được sản xuất bằng quy trình 5 nm hiện đại, có 6 lõi hiệu năng cao và 2 lõi tiết kiệm điện, cho hiệu năng nhanh hơn tới 70% và hiệu suất tăng 1.7 lần so với thế hệ trước, mang lại hiệu năng vượt trội nhưng vẫn đảm bảo tiết kiệm điện năng tiêu thụ, cho phép mình làm việc văn phòng mượt mà, chỉnh sửa ảnh hay dựng video độ phân giải cao đều không thành vấn đề.',
+	'Silver',
+	400,
+	417,
 	10,
 	1,
 	3,
 	100,
 	1,
-	11
+	1
 );
 
+INSERT INTO Product VALUES (
+	N'MacBook Pro 14 M1',
+	N'MacBook Pro sở hữu bộ vi xử lý M1 Pro được sản xuất bằng quy trình 5 nm hiện đại, có 6 lõi hiệu năng cao và 2 lõi tiết kiệm điện, cho hiệu năng nhanh hơn tới 70% và hiệu suất tăng 1.7 lần so với thế hệ trước, mang lại hiệu năng vượt trội nhưng vẫn đảm bảo tiết kiệm điện năng tiêu thụ, cho phép mình làm việc văn phòng mượt mà, chỉnh sửa ảnh hay dựng video độ phân giải cao đều không thành vấn đề.',
+	'Grey',
+	400,
+	430,
+	10,
+	1,
+	9,
+	50,
+	1,
+	1
+);
+
+INSERT INTO Product VALUES (
+	N'iPhone 11 64GB',
+	N'Sau chiếc điện thoại iPhone Xr, Apple tiếp tục ra mắt siêu phẩm 2019 mang tên iPhone 11 64GB - một smartphone được nâng cấp toàn diện từ thiết kế cao cấp, vi xử lý hiệu năng mạnh mẽ đến hệ thống camera chất lượng cùng thời lượng pin vượt trội.',
+	'Black',
+	300,
+	334,
+	10,
+	2,
+	9,
+	50,
+	1,
+	1
+);
+
+INSERT INTO Product VALUES (
+	N'iPhone 11 64GB',
+	N'Sau chiếc điện thoại iPhone Xr, Apple tiếp tục ra mắt siêu phẩm 2019 mang tên iPhone 11 64GB - một smartphone được nâng cấp toàn diện từ thiết kế cao cấp, vi xử lý hiệu năng mạnh mẽ đến hệ thống camera chất lượng cùng thời lượng pin vượt trội.',
+	'White',
+	300,
+	334,
+	10,
+	2,
+	10,
+	50,
+	1,
+	1
+);
+
+INSERT INTO Product VALUES (
+	N'iPad Pro M1 12.9 inch',
+	N'iPad Pro M1 12.9 inch Wifi 128GB (2021) mang trong mình hiệu năng cực khủng kèm theo màn hình Liquid Retina XDR vô cùng ấn tượng. Giờ đây chỉ với chiếc máy tính bảng trên tay, bạn đã có những trải nghiệm giải trí đỉnh cao, thỏa sức sáng tạo và hoàn thành mọi tác phẩm nhanh chóng hơn.',
+	'Grey',
+	300,
+	334,
+	10,
+	3,
+	10,
+	50,
+	1,
+	1
+);
+
+INSERT INTO Product VALUES (
+	N'iPad Air 5 M1',
+	N'Được phủ lên mình một lớp áo làm từ hợp kim nhôm cao cấp cùng kiểu thiết kế vuông vức, giúp máy toát lên vẻ sang trọng và cao cấp hơn, bên cạnh đó iPad Air 5 M1 còn được hoàn thiện mặt lưng nhám giúp hạn chế bám dấu vân tay và mồ hôi trong quá trình sử dụng.',
+	'Grey',
+	330,
+	352,
+	10,
+	3,
+	10,
+	50,
+	1,
+	1
+);
+
+INSERT INTO Product VALUES (
+	N'AirPods 3',
+	N'Chiếc tai nghe Bluetooth AirPods 3 Lightning Charge Apple MPNY3 Trắng mang đến một thiết kế tối giản, kiểu dáng hiện đại, màu sắc tinh tế và nhiều công nghệ âm thanh vượt trội như: Adaptive EQ, Chip Apple H1, Spatial Audio.',
+	'White',
+	350,
+	361,
+	10,
+	4,
+	10,
+	50,
+	1,
+	1
+);
+
+INSERT INTO Product VALUES (
+	N'AirPods Pro',
+	N'AirPods Pro 2 là một trong những sản phẩm được Apple ra mắt trong năm 2022, với nhiều nâng cấp ấn tượng, chip H2 mạnh mẽ, âm thanh phong phú hơn, khả năng khử tiếng ồn chủ động,... hứa hẹn sẽ mang lại trải nghiệm tuyệt vời cho người dùng.',
+	'White',
+	350,
+	362,
+	10,
+	4,
+	10,
+	50,
+	1,
+	1
+);
 
 
 --------- Insert into ProductImg ----------
@@ -176,7 +252,8 @@ INSERT INTO Product VALUES (
 
 --------- Insert into Cart ----------
 
-INSERT INTO Cart VALUES (2, 1, 1);
+INSERT INTO Cart VALUES (2,1,1)
+
 
 --------- Insert into [OrderStatus] ----------
 
@@ -188,5 +265,19 @@ INSERT [dbo].[OrderStatus] ([Name]) VALUES (N'Completed')
 
 --------- Insert into Orders ----------
 
+
 --------- Insert into [OrderDetail] ------------
+
+
+
+--------- Insert into ShipInfo -------------------
+
+
+--------- Insert into Notifications -------------------
+
+
+--------- Insert into Feedback -------------------
+
+
+--------- Insert into Blog -------------------
 

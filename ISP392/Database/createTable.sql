@@ -1,4 +1,5 @@
 ﻿
+
 use OnlineShop
 
 ---------------------------------------------- Table user status -------------------------------
@@ -29,7 +30,9 @@ create table Users
 	UserID int PRIMARY KEY identity(1,1),
 	Username nvarchar(50),
 	[Password] varchar(50),
+	gender varchar(20),
 	Email nvarchar(100),
+	PhoneNum varchar(20),
 	[RoleID] int default 3,
 	statusId int,
 	FOREIGN KEY(RoleID) REFERENCES [Role](RoleID),
@@ -39,28 +42,27 @@ create table Users
 
 --select * from Users
 ------------------------------------------------ Table Ship --------------------------------
-CREATE TABLE Ship (
+CREATE TABLE City (
 	id int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	CityName nvarchar(1000) ,
-	ShipPrice int
+	CityName nvarchar(1000)
 )
 
---select * from Ship
+--select * from ShipCity
 
------------------------------ Table UserAddress -------------------
+----------------------------- Table ShipAddress -------------------
 
-CREATE TABLE UserAddress (
+CREATE TABLE ShipAddress (
 	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	UserID int,
-	ShipName nvarchar(500),
-	ShipAddress nvarchar(1000),
-	ShipCityID int,
+	Fullname nvarchar(100),
 	PhoneNum varchar(20),
+	AddressDetail nvarchar(1000),
+	ShipCityID int,
 	constraint userID_in_user_address FOREIGN KEY(UserID) REFERENCES Users(UserID),
-	constraint ship_city_in_ship_address FOREIGN KEY(ShipCityID) REFERENCES Ship(id)
+	constraint ship_city_in_ship_address FOREIGN KEY(ShipCityID) REFERENCES City(id)
 )
 
---select * from UserAddress
+--select * from ShipAddress
 
 ----------------------------- Table Category -------------------
 
@@ -70,17 +72,6 @@ CREATE TABLE Category (
 )
 
 --select * from Category
-
------------------------------ Table subcategory ----------------------------
-
-CREATE TABLE [dbo].[SubCategory](
-	[SubCategoryID] [int] PRIMARY KEY  IDENTITY(1,1) ,
-	[SubCategoryName] [nvarchar](255),
-	[CategoryID] [int] ,
-	constraint CategoryID FOREIGN KEY (CategoryID)  REFERENCES Category(CategoryID)
-)
-
---select * from [SubCategory]
 
 ------------------------------- Table ProductStatus -------------------------
 
@@ -106,21 +97,22 @@ CREATE TABLE Product (
 	ProductID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	ProductName nvarchar(1000),
 	[Description] text,
+	color varchar(20),
 	OriginalPrice int, 
 	SellPrice int,	
 	SalePercent int CHECK (SalePercent>=0 AND SalePercent<=100),
-	SubCategoryID int,
+	CatID int,
 	SellerID int,
 	Amount int,
 	StatusID int,
 	BrandID int,
-	constraint product_in_subCategory FOREIGN KEY(SubCategoryID) REFERENCES SubCategory(SubCategoryID),
+	constraint product_in_Category FOREIGN KEY(CatID) REFERENCES Category(CategoryID),
 	constraint SellerID_in_Users FOREIGN KEY(SellerID) REFERENCES Users(UserID),
 	constraint StatusID_in_Status FOREIGN KEY(StatusID) REFERENCES ProductStatus(StatusID),
 	constraint BrandID_in_Brand FOREIGN KEY(BrandID) REFERENCES Brand(BrandID)
 )
-
 --select * from Product
+
 
 --------------------- Table ProductImg -------------------
 
@@ -135,6 +127,7 @@ CREATE TABLE [dbo].[ProductImg](
 --------------------- Table cart ---------------------
 
 CREATE TABLE Cart (
+	CartID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	UserID int,
 	ProductID int,
 	Amount int
@@ -151,6 +144,8 @@ CREATE TABLE [dbo].[OrderStatus](
 	[Name] [nvarchar](50) NOT NULL,
  )
 
+ --select * from [OrderStatus]
+
  -------------------- Table Orders ----------------------
 
  CREATE TABLE [dbo].[Orders](
@@ -158,21 +153,74 @@ CREATE TABLE [dbo].[OrderStatus](
 	[UserID] [int] NULL,
 	[TotalPrice] [int] NULL,
 	[Note] [nvarchar](2000) NULL,
-	[Status] [int] NULL,
-	[Date] [DATETIME] NULL ,
+	StatusID [int] NULL,
+	[OrderDate] [DATETIME] NULL ,
+	DeliveryDate [DATETIME] NULL,
 	constraint userID_in_order_status FOREIGN KEY(UserID) REFERENCES Users(UserID),
-	constraint statusID_in_order_status FOREIGN KEY(Status) REFERENCES OrderStatus(ID)
+	constraint statusID_in_order_status FOREIGN KEY(StatusID) REFERENCES OrderStatus(ID)
 )
+
+--select * from Orders
 
 --------------------- Table OrderDetail ---------------------
 
 CREATE TABLE [dbo].[OrderDetail](
 	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	[OrderID] [int] NOT NULL ,
+	[Order_ID] [int] NOT NULL ,
 	[ProductID] [int] NOT NULL,
 	[ProductName] [nvarchar](1000) NOT NULL,
 	[ProductPrice] [int] NOT NULL,	
 	[Quantity] [int] NOT NULL,
-	constraint orderID_in_order_detail FOREIGN KEY(OrderID) REFERENCES Orders(ID),
+	constraint orderID_in_order_detail FOREIGN KEY(Order_ID) REFERENCES Orders(ID),
 	constraint productID_in_order_detail FOREIGN KEY(ProductID) REFERENCES Product(ProductID)	
+)
+--select * from [OrderDetail]
+
+------------------------ Table ShipInfo --------------------
+
+CREATE TABLE ShipInfo (
+	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	OrderID int,
+	ShipAddressID int,
+	Note nvarchar(2000),
+	constraint order_id_in_ship_info FOREIGN KEY(OrderID) REFERENCES Orders(ID),
+	constraint shipaddress_id_in_ship_info FOREIGN KEY(ShipAddressID) REFERENCES ShipAddress(id)
+)
+
+---------------------- Table Notifications -------------------
+CREATE TABLE Notifications(
+	ID int PRIMARY KEY identity (1,1),
+	UserID int,
+	OrderID int,
+	Content nvarchar(1000),
+	status int,
+	time datetime,
+	constraint UserID_in_Users FOREIGN KEY(UserID) REFERENCES Users(userId),
+	constraint OrderID_in_Orders FOREIGN KEY(OrderID) REFERENCES Orders(ID)
+
+);
+
+---------------- Table Feedback ---------------------
+CREATE TABLE Feedback (
+	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	UserID int,
+	ProductID int,
+	OrderID int,
+	Star int, --min 1- max 5
+	FeedbackDetail nvarchar(2000),
+	constraint userID_in_user_3 FOREIGN KEY(UserID) REFERENCES Users(UserID),
+	constraint orderID_in_orders_6 FOREIGN KEY(OrderID) REFERENCES Orders(ID),
+	constraint productID_in_feedback FOREIGN KEY(ProductID) REFERENCES Product(ProductID),
+	constraint valid_star CHECK (Star < 6 AND Star > 0)
+)
+
+--------------- Table Blog ---------------
+
+Create TABLE Blog(
+	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	UserID int,
+	Title nvarchar(2500),
+	Content nvarchar(2500),
+	imageLink nvarchar(1000),
+	constraint userID_in_users_3 FOREIGN KEY(UserID) REFERENCES Users(UserID)
 )
