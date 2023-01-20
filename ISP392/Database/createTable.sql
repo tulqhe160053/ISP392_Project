@@ -49,6 +49,14 @@ CREATE TABLE City (
 
 --select * from ShipCity
 
+------------------ Table District -------------------
+CREATE TABLE District (
+	id int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	DistrictName nvarchar(1000)
+)
+
+--select * from District
+
 ----------------------------- Table ShipAddress -------------------
 
 CREATE TABLE ShipAddress (
@@ -56,10 +64,12 @@ CREATE TABLE ShipAddress (
 	UserID int,
 	Fullname nvarchar(100),
 	PhoneNum varchar(20),
-	AddressDetail nvarchar(1000),
 	ShipCityID int,
+	DistrictId int,
+	AddressDetail nvarchar(1000),
 	constraint userID_in_user_address FOREIGN KEY(UserID) REFERENCES Users(UserID),
-	constraint ship_city_in_ship_address FOREIGN KEY(ShipCityID) REFERENCES City(id)
+	constraint ship_city_in_ship_address FOREIGN KEY(ShipCityID) REFERENCES City(id),
+	constraint district_in_ship_address FOREIGN KEY(DistrictId) REFERENCES District(id)
 )
 
 --select * from ShipAddress

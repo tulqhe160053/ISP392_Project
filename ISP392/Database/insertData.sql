@@ -1,5 +1,4 @@
 ﻿
-
 use OnlineShop
 
 ------ Insert into UserStatus ------------------------
@@ -99,12 +98,27 @@ INSERT INTO City VALUES (N'Vĩnh Long');
 INSERT INTO City VALUES (N'Vĩnh Phúc');
 INSERT INTO City VALUES (N'Yên Bái');
 
+------ Insert into District ----------------
+
+INSERT INTO District VALUES (N'Ba Đình');
+INSERT INTO District VALUES (N'Bắc Từ Liêm');
+INSERT INTO District VALUES (N'Cầu Giấy');
+INSERT INTO District VALUES (N'Đống Đa');
+INSERT INTO District VALUES (N'Hà Đông');
+INSERT INTO District VALUES (N'Hai Bà Trưng');
+INSERT INTO District VALUES (N'Hoàn Kiếm');
+INSERT INTO District VALUES (N'Hoàng Mai');
+INSERT INTO District VALUES (N'Long Biên');
+INSERT INTO District VALUES (N'Nam Từ Liêm');
+INSERT INTO District VALUES (N'Tây Hồ');
+INSERT INTO District VALUES (N'Thanh Xuân');
+
 ------ Insert into ShipAddress ------------
 
-insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (2, N'Linh Quang Tú', '0962239966', N'Số nhà 182, tổ 10, Phường Ngọc Xuân', 13);
-insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (5, N'Bình Minh', '0123122435', N'Số 92, đường Lê Lợi', 24);
-insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (6, N'Xuân Quỳnh', '0977889811', N'Sô 123 Đường Láng', 24);
-insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum, AddressDetail,ShipCityID) values (7, N'Minh Quân', '0540930921', N'Số 92 Đường Lê Thánh Tông', 24);
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum,ShipCityID,DistrictId, AddressDetail) values (2, N'Linh Quang Tú', '0962239966', 24, 1, N'Số nhà 182, Giảng Võ');
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum,ShipCityID,DistrictId, AddressDetail) values (5, N'Bình Minh', '0123122435',24,2, N'Số 92, Xuân Đỉnh');
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum,ShipCityID,DistrictId, AddressDetail) values (6, N'Xuân Quỳnh', '0977889811',24,3, N'Sô 123, Trung Hòa');
+insert into dbo.[ShipAddress] (UserID, Fullname, PhoneNum,ShipCityID,DistrictId, AddressDetail) values (7, N'Minh Quân', '0540930921',24,4, N'Số 92, Ô Chợ Dừa');
 
 
 ------ Insert into Category ------------
