@@ -262,7 +262,14 @@ INSERT INTO Product VALUES (
 
 
 --------- Insert into ProductImg ----------
-
+Insert into ProductImg values (1,'MB1.jpg')
+Insert into ProductImg values (2,'MB2.jpg')
+Insert into ProductImg values (3,'IP1.jpg')
+Insert into ProductImg values (4,'IP2.jpg')
+Insert into ProductImg values (5,'IPA1.jpg')
+Insert into ProductImg values (6,'IPA2.jpg')
+Insert into ProductImg values (7,'AP1.jpg')
+Insert into ProductImg values (8,'AP2.jpg')
 
 --------- Insert into Cart ----------
 
@@ -294,4 +301,12 @@ INSERT [dbo].[OrderStatus] ([Name]) VALUES (N'Completed')
 
 
 --------- Insert into Blog -------------------
+
+
+--------- Insert into Slider -----------------
+Insert into Slider values ('laptop.jpg',1,null);
+Insert into Slider values ('phone.jpg',2,null);
+Insert into Slider values ('tablet.jpg',3,null);
+
+
 

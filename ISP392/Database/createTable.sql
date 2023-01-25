@@ -47,7 +47,7 @@ CREATE TABLE City (
 	CityName nvarchar(1000)
 )
 
---select * from ShipCity
+--select * from City
 
 ------------------ Table District -------------------
 CREATE TABLE District (
@@ -127,6 +127,7 @@ CREATE TABLE Product (
 --------------------- Table ProductImg -------------------
 
 CREATE TABLE [dbo].[ProductImg](
+	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	[ProductID] [int]  ,
 	[ProductImgURL] [varchar](255) ,
 	constraint ProductImg_ID FOREIGN KEY([ProductID])
@@ -234,3 +235,15 @@ Create TABLE Blog(
 	imageLink nvarchar(1000),
 	constraint userID_in_users_3 FOREIGN KEY(UserID) REFERENCES Users(UserID)
 )
+
+--------------- Table Slider -------------------
+
+Create TABLE Slider(
+	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	[urlImage] varchar(255),
+	CatID int,
+	BackLink nvarchar(2500),
+	constraint catID_in_Slider FOREIGN KEY(CatID) REFERENCES Category(CategoryID)
+)
+
+--select * from Slider
