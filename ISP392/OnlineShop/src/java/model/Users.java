@@ -97,6 +97,11 @@ public class Users {
         this.userStatus = userStatus;
     }
 
+    @Override
+    public String toString() {
+        return "Users{" + "userID=" + userID + ", userName=" + userName + ", password=" + password + ", gender=" + gender + ", email=" + email + ", phoneNum=" + phoneNum + ", role=" + role + ", userStatus=" + userStatus + '}';
+    }
+
     
      
 

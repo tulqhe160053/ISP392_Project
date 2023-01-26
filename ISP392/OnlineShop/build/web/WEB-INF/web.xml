@@ -19,6 +19,9 @@
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/category.jsp</url-pattern>
+        <url-pattern>/category</url-pattern>
+        <url-pattern>/product-detail.jsp</url-pattern>
+        <url-pattern>/product</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>EncodingCharacter</filter-name>

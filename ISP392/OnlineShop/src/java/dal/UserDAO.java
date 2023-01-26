@@ -93,7 +93,7 @@ public class UserDAO extends MyDAO implements DAOInterface<Users> {
     public Users login(String user, String pass) {
 
         try {
-            String sql = "select UserID , Username , Password , gender , Email,PhoneNum , roleID, userStatusId from users  \n"
+            String sql = "select UserID , Username , Password , gender , Email,PhoneNum , RoleID, statusId from users  \n"
                     + "where Username = ? and Password = ?";
             ps = con.prepareStatement(sql);
             ps.setString(1, user);
@@ -201,6 +201,6 @@ public class UserDAO extends MyDAO implements DAOInterface<Users> {
         UserDAO dao = new UserDAO();
         ArrayList<Users> list = dao.selectAll();
 
-        System.out.println(dao.selectById(list.get(1)));
+        System.out.println(dao.login("tu", "1234567"));
     }
 }

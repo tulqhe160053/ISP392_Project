@@ -44,7 +44,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="#">My Profile</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">My Orders</a></li>
-                                        <c:if test="${sessionScope.user.roleID == 1}">
+                                        <c:if test="${sessionScope.user.getRole().getRoleID() == 1}">
                                         <li class="nav-item"><a class="nav-link" href="#">Admin Dashboard</a></li>
                                         </c:if>
                                     <li class="nav-item"><a class="nav-link" href="logout">Log Out</a></li>
