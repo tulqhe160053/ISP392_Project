@@ -5,10 +5,10 @@
 
 package controler;
 
-import database.CategoryDAO;
-import database.ProductDAO;
-import database.ProductImgDAO;
-import database.SliderDAO;
+import dal.CategoryDAO;
+import dal.ProductDAO;
+import dal.ProductImgDAO;
+import dal.SliderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -59,7 +59,7 @@ public class HomeServlet extends HttpServlet {
        ProductImgDAO productImg_dao = new ProductImgDAO();
        ArrayList<ProductImg> list_productImg =  productImg_dao.selectAll();
        request.setAttribute("list_productImg",list_productImg);
-       
+       request.setCharacterEncoding("UTF-8");
        String searchName = request.getParameter("searchName");
        if(searchName!=null){
            ArrayList<Product> listSearch_products =  product_daoo.getProductsByName(searchName);

@@ -47,10 +47,6 @@
                 <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
                     <div class="col-first">
                         <h1>Login</h1>
-                        <nav class="d-flex align-items-center">
-                            <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-                            <a href="category.html">Login</a>
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -66,7 +62,7 @@
                             <img class="img-fluid" src="img/login.jpg" alt="">
                             <div class="hover">
                                 <h4>Bạn đã có tài khoản?</h4>
-                                <a class="primary-btn" href="register.jsp">Ðăng nhập</a>
+                                <a class="primary-btn" href="login.jsp">Ðăng nhập</a>
                             </div>
                         </div>
                     </div>
@@ -75,10 +71,10 @@
                             <h3>Đăng ký</h3>
                             <form class="row login_form pt-2" action="register" method="post" id="contactForm" novalidate="novalidate">
                                 <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" id="name" name="user" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                                    <input type="text" class="form-control" id="name" name="userName" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <input type="password" class="form-control" id="name" name="pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                                    <input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                                 </div>
 
                                 <div class="col-md-12 form-group">
@@ -90,11 +86,11 @@
                                 </div>
                                 
                                 <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" id="name" name="email" placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                                    <input type="email" class="form-control" id="name" name="email" placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
                                 </div>
                                 
                                 <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" id="name" name="num" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'">
+                                    <input type="tel" class="form-control" id="name" name="num" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'">
                                 </div>
 
                                 <div class="col-md-12 form-group">

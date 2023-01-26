@@ -4,8 +4,7 @@
  */
 package controler;
 
-import database.LoginDAO;
-import database.UserDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,6 +13,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Role;
+import model.UserStatus;
 import model.Users;
 
 /**
@@ -35,8 +36,8 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("user");
-        String password = request.getParameter("pass");
+        String username = request.getParameter("userName");
+        String password = request.getParameter("password");
         String repassword = request.getParameter("repass");
         String gender = request.getParameter("gender");
         String email = request.getParameter("email");
@@ -45,10 +46,10 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("mess", "Mật khẩu không trùng khớp");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }else{
-            LoginDAO user = new LoginDAO();
-            Users u = user.checklogin(username, email, phone);
+            UserDAO dao = new UserDAO();
+            Users u = dao.checklogin(username, email, phone);
             if(u == null) {
-                user.register(username, password, gender, email, phone);
+                dao.register(username, password, gender, email, phone, new Role(3,"Customer"), new UserStatus(1, "Active"));
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }else{
                 request.setAttribute("mess", "Tài khoản đã tồn tại");

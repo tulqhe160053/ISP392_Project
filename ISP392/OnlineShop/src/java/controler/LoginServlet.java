@@ -4,8 +4,7 @@
  */
 package controler;
 
-import database.LoginDAO;
-import database.UserDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -51,7 +50,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     /**
@@ -66,10 +65,10 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        String username = request.getParameter("user");
-        String password = request.getParameter("pass");
-        LoginDAO user = new LoginDAO();
-        Users u = user.login(username, password);
+        String username = request.getParameter("userName");
+        String password = request.getParameter("password");
+        UserDAO dao = new UserDAO();
+        Users u = dao.login(username, password);
         if (u == null) {
             request.setAttribute("mess", "Ðăng nhập thất bại!!");
             request.getRequestDispatcher("login.jsp").forward(request, response);

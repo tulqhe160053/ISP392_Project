@@ -149,7 +149,7 @@
                     <div class="row">
                         <c:forEach items="${requestScope.listCategorys}" var="category">
                             <div class="col-lg-3 col-md-4 h-auto mb-3">
-                                <button type="button" class="btn btn-warning btn-lg w-100 h-auto"><a href="home?catId=${category.getCategoryId()}" class="text-dark" style="text-decoration: none">${category.getCategoryName()}</a></button>
+                                <button type="button" class="btn btn-warning btn-lg w-100 h-auto"><a href="category?catId=${category.getCategoryId()}" class="text-dark" style="text-decoration: none">${category.getCategoryName()}</a></button>
                             </div>
                         </c:forEach>
                     </div>
@@ -191,7 +191,7 @@
                                                 <h5 class="card-title">${product.getProductName()}</h5>
                                                 <p class="card-text">Color: ${product.getColor()}</p>
                                                 <p class="card-text text-danger">Price: ${product.getSellPrice()}$</p>
-                                                <a href="#" class="btn btn-primary">View detail</a>
+                                                <a href="product?productId=${product.getProductID()}" class="btn btn-primary">View detail</a>
                                             </div>
                                         </div>
                                     </c:if>
@@ -225,13 +225,16 @@
                                                         <h5 class="card-title">${product.getProductName()}</h5>
                                                         <p class="card-text">Color: ${product.getColor()}</p>
                                                         <p class="card-text text-danger">Price: ${product.getSellPrice()}$</p>
-                                                        <a href="#" class="btn btn-primary">View detail</a>
+                                                        <a href="product?productId=${product.getProductID()}" class="btn btn-primary">View detail</a>
                                                     </div>
                                                 </div>
                                             </c:if>
                                         </c:forEach>
                                     </c:if>
                                 </c:forEach>
+                            </div>
+                            <div class="row">
+                                <a href="category?catId=${category.getCategoryId()}">View all product</a>
                             </div>
                         </div>
                     </div>
