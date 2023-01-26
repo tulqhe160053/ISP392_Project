@@ -70,7 +70,7 @@ public class LoginServlet extends HttpServlet {
         UserDAO dao = new UserDAO();
         Users u = dao.login(username, password);
         if (u == null) {
-            request.setAttribute("mess", "Ðăng nhập thất bại!!");
+            request.setAttribute("mess", "Sai tên đăng nhập hoặc mật khẩu");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
