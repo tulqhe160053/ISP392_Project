@@ -273,8 +273,6 @@ Insert into ProductImg values (8,'AP2.jpg')
 
 --------- Insert into Cart ----------
 
-INSERT INTO Cart VALUES (2,1,1)
-
 
 --------- Insert into [OrderStatus] ----------
 

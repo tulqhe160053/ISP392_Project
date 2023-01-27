@@ -138,13 +138,13 @@ CREATE TABLE [dbo].[ProductImg](
 --------------------- Table cart ---------------------
 
 CREATE TABLE Cart (
-	CartID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	UserID int,
 	ProductID int,
 	Amount int
 	constraint userID_in_cart FOREIGN KEY(UserID) REFERENCES Users(UserID),
 	constraint productID_in_cart FOREIGN KEY(ProductID) REFERENCES Product(ProductID),
 )
+
 
 --select * from Cart
 
@@ -162,7 +162,7 @@ CREATE TABLE [dbo].[OrderStatus](
  CREATE TABLE [dbo].[Orders](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[UserID] [int] NULL,
-	[TotalPrice] [int] NULL,
+	[TotalPrice] float NULL,
 	[Note] [nvarchar](2000) NULL,
 	StatusID [int] NULL,
 	[OrderDate] [DATETIME] NULL ,
@@ -170,6 +170,7 @@ CREATE TABLE [dbo].[OrderStatus](
 	constraint userID_in_order_status FOREIGN KEY(UserID) REFERENCES Users(UserID),
 	constraint statusID_in_order_status FOREIGN KEY(StatusID) REFERENCES OrderStatus(ID)
 )
+
 
 --select * from Orders
 
@@ -216,14 +217,13 @@ CREATE TABLE Feedback (
 	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	UserID int,
 	ProductID int,
-	OrderID int,
 	Star int, --min 1- max 5
 	FeedbackDetail nvarchar(2000),
 	constraint userID_in_user_3 FOREIGN KEY(UserID) REFERENCES Users(UserID),
-	constraint orderID_in_orders_6 FOREIGN KEY(OrderID) REFERENCES Orders(ID),
 	constraint productID_in_feedback FOREIGN KEY(ProductID) REFERENCES Product(ProductID),
 	constraint valid_star CHECK (Star < 6 AND Star > 0)
 )
+
 
 --------------- Table Blog ---------------
 
