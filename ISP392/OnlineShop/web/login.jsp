@@ -84,10 +84,8 @@
 
                                 <div class="col-md-12 form-group">
                                     <button type="submit" value="submit" class="primary-btn">Ðăng nhập</button>
-                                    <a href="ResetPassword.jsp">Quên mật khẩu?</a> 
-                                    
+                                    <a href="#">Quên mật khẩu?</a>
                                 </div>
-                                
                             </form>
                         </div>
                     </div>

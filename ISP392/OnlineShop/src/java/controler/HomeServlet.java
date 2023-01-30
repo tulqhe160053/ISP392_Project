@@ -68,7 +68,7 @@ public class HomeServlet extends HttpServlet {
         try {
             String catId_String = request.getParameter("catId");
             if(catId_String.equals("")){
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("homepage.jsp").forward(request, response);
             }
             else {
                 int catId = Integer.parseInt(catId_String);
@@ -83,7 +83,7 @@ public class HomeServlet extends HttpServlet {
             System.err.println(e);
         }
         
-       request.getRequestDispatcher("index.jsp").forward(request, response);
+       request.getRequestDispatcher("homepage.jsp").forward(request, response);
     } 
 
     /** 

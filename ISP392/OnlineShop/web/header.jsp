@@ -25,7 +25,7 @@
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            <a href="blog.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">Blog</a>
                         </li>
                         <c:if test="${sessionScope.user == null}">
@@ -54,9 +54,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a href="#" class="cart">
-                                <span class="ti-bag position-relative"></span>
-                            </a>                                
+                            <form action="cart" method="post">
+                                <button type="submit" class="btn"><span class="ti-bag position-relative"></span></button> 
+                            </form>                               
                         </li>
                     </ul>
                 </div>

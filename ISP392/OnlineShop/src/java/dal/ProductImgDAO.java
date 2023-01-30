@@ -45,7 +45,53 @@ public class ProductImgDAO extends MyDAO implements DAOInterface<ProductImg> {
 
     @Override
     public ProductImg selectById(ProductImg t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                ProductImg ketqua = null;
+        xSql = "select * from ProductImg where ProductID = ?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setInt(1, t.getProduct().getProductID());
+            rs = ps.executeQuery();
+            /* The cursor on the rs after this statement is in the BOF area, i.e. it is before the first record.
+         Thus the first rs.next() statement moves the cursor to the first record
+             */
+
+            if (rs.next()) {
+                int id = rs.getInt("ID");
+                String productImgURL = rs.getString("ProductImgURL");
+                ketqua = new ProductImg(id, t.getProduct(), productImgURL);
+            } else {
+                ketqua = null;
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+        }
+        return (ketqua);
+    }
+    
+    public ProductImg selectByProductId(Product t) {
+                ProductImg ketqua = null;
+        xSql = "select * from ProductImg where ProductID = ?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setInt(1, t.getProductID());
+            rs = ps.executeQuery();
+            /* The cursor on the rs after this statement is in the BOF area, i.e. it is before the first record.
+         Thus the first rs.next() statement moves the cursor to the first record
+             */
+
+            if (rs.next()) {
+                int id = rs.getInt("ID");
+                String productImgURL = rs.getString("ProductImgURL");
+                ketqua = new ProductImg(id, t, productImgURL);
+            } else {
+                ketqua = null;
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+        }
+        return (ketqua);
     }
 
     @Override

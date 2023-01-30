@@ -54,7 +54,7 @@ public class ProductServlet extends HttpServlet {
         try {
             String productId_String = request.getParameter("productId");
             if (productId_String.equals("")) {
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("homepage.jsp").forward(request, response);
             } else {
                 int productId = Integer.parseInt(productId_String);
                 Product product_save = new Product();
@@ -64,8 +64,8 @@ public class ProductServlet extends HttpServlet {
                 Product product = product_dao.selectById(product_save);
                 request.setAttribute("product", product);
                 ProductImgDAO productImg_dao = new ProductImgDAO();
-                ArrayList<ProductImg> list_productImg = productImg_dao.selectAll();
-                request.setAttribute("list_productImg", list_productImg);
+                 ProductImg productImg = productImg_dao.selectByProductId(product);
+                request.setAttribute("productImg", productImg);
                 
             }
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class ProductServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
         
-        request.getRequestDispatcher("product-detail.jsp").forward(request, response);
+        request.getRequestDispatcher("viewProductDetail.jsp").forward(request, response);
     }
 
     /**
