@@ -138,6 +138,7 @@ CREATE TABLE [dbo].[ProductImg](
 --------------------- Table cart ---------------------
 
 CREATE TABLE Cart (
+	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	UserID int,
 	ProductID int,
 	Amount int
@@ -178,15 +179,16 @@ CREATE TABLE [dbo].[OrderStatus](
 
 CREATE TABLE [dbo].[OrderDetail](
 	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	[Order_ID] [int] NOT NULL ,
+	[OrderID] [int] NOT NULL ,
 	[ProductID] [int] NOT NULL,
 	[ProductName] [nvarchar](1000) NOT NULL,
 	[ProductPrice] [int] NOT NULL,	
 	[Quantity] [int] NOT NULL,
-	constraint orderID_in_order_detail FOREIGN KEY(Order_ID) REFERENCES Orders(ID),
+	constraint orderID_in_order_detail FOREIGN KEY(OrderID) REFERENCES Orders(ID),
 	constraint productID_in_order_detail FOREIGN KEY(ProductID) REFERENCES Product(ProductID)	
 )
 --select * from [OrderDetail]
+
 
 ------------------------ Table ShipInfo --------------------
 
@@ -230,9 +232,11 @@ CREATE TABLE Feedback (
 Create TABLE Blog(
 	ID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	UserID int,
+	CatId int,
 	Title nvarchar(2500),
 	Content nvarchar(2500),
 	imageLink nvarchar(1000),
+	constraint blog_in_Category FOREIGN KEY(CatID) REFERENCES Category(CategoryID),
 	constraint userID_in_users_3 FOREIGN KEY(UserID) REFERENCES Users(UserID)
 )
 
