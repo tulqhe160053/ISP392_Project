@@ -234,7 +234,8 @@ Create TABLE Blog(
 	UserID int,
 	CatId int,
 	Title nvarchar(2500),
-	Content nvarchar(2500),
+	[description] text,
+	Content text,
 	imageLink nvarchar(1000),
 	constraint blog_in_Category FOREIGN KEY(CatID) REFERENCES Category(CategoryID),
 	constraint userID_in_users_3 FOREIGN KEY(UserID) REFERENCES Users(UserID)
