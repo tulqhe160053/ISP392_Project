@@ -33,6 +33,10 @@ public class Users {
         this.userStatus = userStatus;
     }
 
+    public Users(int aInt, String string, String string0, String string1, int aInt0, int aInt1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getUserID() {
         return userID;
     }

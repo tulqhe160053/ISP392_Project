@@ -18,8 +18,6 @@
         <url-pattern>/category</url-pattern>
         <url-pattern>/product-detail.jsp</url-pattern>
         <url-pattern>/product</url-pattern>
-        <url-pattern>/cart.jsp</url-pattern>
-        <url-pattern>/cart</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>EncodingCharacter</filter-name>
@@ -41,6 +39,10 @@
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>controler.CartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TessServelet</servlet-name>
+        <servlet-class>controler.TessServelet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -56,6 +58,10 @@
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TessServelet</servlet-name>
+        <url-pattern>/tes</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
