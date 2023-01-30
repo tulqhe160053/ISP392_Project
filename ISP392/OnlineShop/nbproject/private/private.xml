@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/CartServlet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/RegisterServlet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/web/homepage.jsp</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/LogoutServlet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/ProductServlet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/filter/LoginFilter.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/DashBoardServelet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/HomeServlet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/CategoryServlet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/src/java/controler/LoginServlet.java</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/web/header.jsp</file>
+            <file>file:/D:/Fpt_learning/Spring2023/ISP392/OnlineShop/web/WEB-INF/web.xml</file>
+        </group>
     </open-files>
 </project-private>

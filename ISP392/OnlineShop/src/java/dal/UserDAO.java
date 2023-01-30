@@ -201,6 +201,8 @@ public class UserDAO extends MyDAO implements DAOInterface<Users> {
         UserDAO dao = new UserDAO();
         ArrayList<Users> list = dao.selectAll();
 
-        System.out.println(dao.login("tu", "1234567"));
+        for (Users users : list) {
+            System.out.println(users);
+        }
     }
 }

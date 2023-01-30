@@ -5,12 +5,19 @@
 
 package controler;
 
+import dal.CartDAO;
+import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import model.Cart;
+import model.Product;
+import model.Users;
 
 /**
  *
@@ -28,18 +35,7 @@ public class CartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CartServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CartServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        doPost(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,7 +49,36 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            HttpSession session = request.getSession();
+            if(session!=null){
+                Users user = (Users) session.getAttribute("user");
+
+                String productId_String = request.getParameter("productId");
+                int productId = Integer.parseInt(productId_String);
+                ProductDAO product_dao = new ProductDAO();
+                Product x = new Product();
+                x.setProductID(productId);
+                Product product = product_dao.selectById(x);
+
+                String amount_string = request.getParameter("amount");
+                int amount = Integer.parseInt(amount_string);
+
+                Cart c = new Cart(5, user, product, amount);
+                CartDAO cart_dao = new CartDAO();
+                for (Cart object : cart_dao.selectAll()) {
+                    if((c.getUser().getUserID()== object.getUser().getUserID()) && (c.getProduct().getProductID()==object.getProduct().getProductID())){
+                        request.getRequestDispatcher("home").forward(request, response);
+                    }
+                }
+                cart_dao.insert(new Cart(5, user, product, amount));
+                request.getRequestDispatcher("home").forward(request, response);
+            }
+            else{
+                request.getRequestDispatcher("login").forward(request, response);
+            }
+        } catch (Exception e) {
+        }
     } 
 
     /** 
@@ -66,7 +91,13 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("user");
+        CartDAO cart_dao = new CartDAO();
+        ArrayList<Cart> list = cart_dao.selectByUserId(user.getUserID());
+        Arraylist<ProductImg> 
+        request.setAttribute("list",list);
+        request.getRequestDispatcher("viewCart.jsp").forward(request, response);
     }
 
     /** 
