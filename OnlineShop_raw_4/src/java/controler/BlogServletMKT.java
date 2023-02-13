@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Blog;
 import model.Category;
+import model.Users;
 
 /**
  *
@@ -45,8 +46,23 @@ public class BlogServletMKT extends HttpServlet {
 
             List<Blog> listBlog = dao.getAllBlog();
             List<Category> category = cat.selectAll();
+            int page, numperpage = 3;
+            int size = listBlog.size();
+            int num = (size % 3 == 0 ? (size / 3) : ((size / 3)) + 1);//so trang
+            String xpage = request.getParameter("page");
+            if (xpage == null) {
+                page = 1;
+            } else {
+                page = Integer.parseInt(xpage);
+            }
+            int start, end;
+            start = (page - 1) * numperpage;
+            end = Math.min(page * numperpage, size);
+            List<Blog> blog = dao.getListByPage(listBlog, start, end);
+            request.setAttribute("page", page);
+            request.setAttribute("num", num);
             request.setAttribute("category", category);
-            request.setAttribute("listBlog", listBlog);
+            request.setAttribute("listBlog", blog);
             request.getRequestDispatcher("marketing/viewbloglist.jsp").forward(request, response);
         }
 

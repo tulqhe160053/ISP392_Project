@@ -49,7 +49,7 @@
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="admindashboard.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                MKT Dashboard
                             </a>
                             <a class="nav-link" href="blogmkt">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
@@ -65,7 +65,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">User List</h1>
+                        <h1 class="mt-4">Blog List</h1>
                          
                         <!--                        <div class="row">
                                                     <div class="col-xl-3 col-md-6">
@@ -219,7 +219,7 @@
 
                                                     <tr>
                                                         <td>${b.id}</td>                                               
-                                                        <td><img width=200px" style="justify-content: center" src="${b.imageLink}" alt="alt"/></td>
+                                                        <td><img width=200px" style="" src="${b.imageLink}" alt="alt"/></td>
                                                         <td>${b.title}</td>
                                                         <td>${b.category.getCategoryName()}</td>
                                                         <td>${b.user.getUserName()}</td>
@@ -227,7 +227,7 @@
 
                                                        
 
-                                                        <td style="text-align: center"> <a style="margin: 0 10px 0 10px  ;" href=""><i class="fa-solid fa-user"  style="color:#22baa0"></i></a></i></td>
+                                                        <td style="text-align: center"> <a style="margin: 0 10px 0 10px  ;" href=""><i class="fa-solid fa-plus"  style="color:#22baa0"></i></a></i></td>
                                                         <td style="text-align: center"> <a style="margin: 0 10px 0 10px  ;" href=""><i class="fa-solid fa-trash"style="color:#22baa0"></i></a></i></td>
 
 
@@ -247,7 +247,7 @@
                                         <ul class="pagination">
                                             <c:set var="page" value="${page}"/>
                                             <c:forEach begin="${1}" end="${num}" var="i">
-                                                <li class="page-item"><a class="page-link ${i==page?"current":""}" href="user?page=${i}">${i}</a></li>
+                                                <li class="page-item"><a class="page-link ${i==page?"current":""}" href="blogmkt?page=${i}">${i}</a></li>
                                                 </c:forEach>
                                         </ul>
                                     </nav>

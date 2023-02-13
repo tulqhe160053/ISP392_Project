@@ -153,6 +153,15 @@ public class BlogDAO extends MyDAO implements DAOInterface<Blog> {
         }
         return list ;
     }
+    
+    public List<Blog> getListByPage(List<Blog> list,
+            int start, int end) {
+        ArrayList<Blog> arr = new ArrayList<>();
+        for (int i = start; i < end; i++) {
+            arr.add(list.get(i));
+        }
+        return arr;
+    }
 
     @Override
     public void insert(Blog t) {
